@@ -1,0 +1,13 @@
+.hover-social:hover > span{
+    color: white;
+}
+
+.dot-hover:hover .dot2 {
+   visibility: visible;
+   opacity: 1;
+   transition: linear .2s;
+}
+
+.dot-hover:hover .dot1 {
+    visibility: hidden;
+}

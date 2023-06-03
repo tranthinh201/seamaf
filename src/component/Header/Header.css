@@ -1,0 +1,5 @@
+.main-menu:hover .sub-menu {
+    visibility: visible;
+    margin-top: 0;
+    transition: all .3s ease-in-out;
+}
