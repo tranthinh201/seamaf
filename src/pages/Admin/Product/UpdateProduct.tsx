@@ -17,8 +17,8 @@ const UpdateProduct: React.FC = () => {
   const [quantity, setQuantity] = useState<number>();
   const [outstanding, setOutstanding] = useState<number>();
   const [categoryId, setCategoryId] = useState<number>();
-  const [showImage, setShowImage] = useState([]);
-
+  const [showImage, setShowImage] = useState<Image[]>();
+  const [previewImage, setPreviewImage] = useState("");
   const { id } = useParams<any>();
   const [detailProduct, setDetailProduct] = useState<product>();
 
@@ -34,26 +34,42 @@ const UpdateProduct: React.FC = () => {
     }
   }
 
-  useEffect(() => {
-    async function getDetail() {
-      try {
-        const res = await productApi.getDetail(id);
-        console.log(res);
-        setDetailProduct(res.data[0].description);
-        setNameProduct(res.data[0].name);
-        setQuantity(res.data[0].quantity);
-        setPrice(res.data[0].price);
-      } catch (e) {
-        console.log(e);
-      }
+  async function getDetail() {
+    try {
+      const res = await productApi.getDetail(id);
+      setDetailProduct(res.data[0].description);
+      setNameProduct(res.data[0].name);
+      setQuantity(res.data[0].quantity);
+      setPrice(res.data[0].price);
+      setPreviewImage(res.data[0].thumbnail);
+      setDesc(res.data[0].description);
+    } catch (e) {
+      console.log(e);
     }
+  }
+  useEffect(() => {
     getDetail();
   }, []);
 
+  async function getImage() {
+    try {
+      const res = await axios.get(
+        `https://thinh-201-pain-epu-backend.onrender.com/api/v1/product/getImageProduct/${id}`
+      );
+
+      const { data } = res.data;
+      setShowImage(data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  useEffect(() => {
+    getImage();
+  }, [id]);
+  console.log(showImage);
   useEffect(() => {
     getCategory();
   }, []);
-  const navigate = useNavigate();
 
   const product = {
     name: nameProduct,
@@ -88,7 +104,16 @@ const UpdateProduct: React.FC = () => {
     }
   };
 
-  const files = Array.from(showImage).map((f) => URL.createObjectURL(f));
+  const handleDeleteImageProduct = async (id: string) => {
+    const res = await axios.delete(
+      `https://thinh-201-pain-epu-backend.onrender.com/api/v1/product/deleteImageProduct/${id}`
+    );
+
+    if (res.status === 200) {
+      showToastMessageSuccess("Xoá ảnh sản phẩm thành công");
+      getImage();
+    }
+  };
 
   return (
     <div className="container m-auto">
@@ -150,27 +175,31 @@ const UpdateProduct: React.FC = () => {
               multiple
               onChange={(e: any) => {
                 setThumbnail(e.target.files);
-                setShowImage(e.target.files);
               }}
             />
-            <div className="flex">
-              {/* {files &&
-                files.map((el: any, index) => (
-                  <div className="mr-20 border" key={index}>
-                    <img
-                      alt="Choose image"
-                      src={URL.createObjectURL(e)}
-                      className="w-[200px]"
-                    />
-                  </div>
-                ))} */}
-              <div className="border border-red-600">
+            <div className="flex flex-wrap ">
+              <div className="border m-4 p-4 ">
                 <img
                   alt="Choose image"
-                  src={detailProduct?.thumbnail}
+                  src={previewImage}
                   className="w-[200px]"
                 />
               </div>
+              {showImage &&
+                showImage?.map((item: any) => (
+                  <div className="border m-4 p-4" key={item.id_image}>
+                    <button
+                      onClick={() => handleDeleteImageProduct(item.id_image)}
+                    >
+                      X
+                    </button>
+                    <img
+                      alt="Choose image"
+                      src={item.path}
+                      className="w-[200px]"
+                    />
+                  </div>
+                ))}
             </div>
           </div>
           <div className="w-full px-3">
@@ -221,6 +250,7 @@ const UpdateProduct: React.FC = () => {
               <select
                 className="block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 pr-8 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
                 id="grid-state"
+                defaultValue={outstanding}
                 value={outstanding}
                 onChange={(e: any) => setOutstanding(e.target.value)}
               >
@@ -252,6 +282,7 @@ const UpdateProduct: React.FC = () => {
               <select
                 className="block w-full appearance-none rounded border border-gray-200 bg-gray-200 py-3 px-4 pr-8 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none"
                 id="grid-state"
+                defaultValue={categoryId}
                 value={categoryId}
                 onChange={(e: any) => setCategoryId(e.target.value)}
               >

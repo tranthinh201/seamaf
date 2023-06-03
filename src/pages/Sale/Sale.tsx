@@ -59,22 +59,7 @@ function Sale() {
           </span>
         </div>
       </div>
-      <div className="container flex flex-col md:flex-col sm:flex-col m-auto lg:flex-row xl:flex-row">
-        <Banner
-          image={
-            "https://seamaf.com/storage/uploads/banners/jellyfish-698521_1280.jpg.jpg.webp"
-          }
-          title={"HANDMADE"}
-          desc={"HURRY! 60% OFF"}
-        />
-        <Banner
-          image={
-            "https://seamaf.com/storage/uploads/banners/milky-way-2695569_1280.jpg.jpg.webp"
-          }
-          title={"EVENTS"}
-          desc={"WEDDING & PARTY ACCESSORIES"}
-        />
-      </div>
+
       <div>
         <div className="py-5">
           <h2 className="text-center text-[20px] font-bold">

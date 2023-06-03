@@ -41,12 +41,6 @@ function SignIn() {
     loginGoogle(data, dispatch, navigate);
   };
 
-  useEffect(() => {
-    setValue(localStorage.getItem("email"));
-  });
-
-  console.log(localStorage.getItem("email"));
-
   return !userInfor ? (
     <div className="flex xl:w-[1400px] m-auto rounded-[20px] overflow-hidden my-6 border border-[rgba(0,0,0,.125)]">
       <div className='bg-[url("https://seamaf.com/frontend/img/background.jpg")] hidden lg:block bg-no-repeat bg-cover w-[45%]'></div>
@@ -61,6 +55,7 @@ function SignIn() {
                 <MdEmail />
               </div>
               <input
+                required
                 type="email"
                 placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
@@ -72,16 +67,13 @@ function SignIn() {
                 <GoKey />
               </div>
               <input
+                required
                 type="password"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full border p-2 pl-10 outline-none focus:border-[#007bff]"
               />
             </div>
-          </div>
-          <div className="flex text-[18px]">
-            <input type="checkbox" className="mr-2" />
-            <p>Remember me</p>
           </div>
           <div className="bg-[#f51167] text-center rounded-[6px] my-3">
             <button className="w-full text-[18px] py-2 font-bold text-white">

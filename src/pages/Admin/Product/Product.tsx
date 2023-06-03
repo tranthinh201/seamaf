@@ -27,9 +27,8 @@ const Product: React.FC = () => {
   console.log(product);
 
   async function handleDeleteProduct(id: number) {
-    console.log(id);
     const res = await axios.delete(
-      `https://thinh-201-pain-epu-backend.onrender.com/api/v1/product/delete/${id}`
+      `http://localhost:8000/api/v1/product/delete/${id}`
     );
     if (res.status === 200) {
       showToastMessageSuccess("Xoá thành công!");

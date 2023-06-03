@@ -135,17 +135,17 @@ const Header: React.FC = () => {
       <div className="lg:m-auto lg:container xl:m-auto xl:container">
         <div className="flex m-auto justify-between items-center pt-[18px] pb-[16px] flex-col ssm:flex-col sm:flex-col lg:flex-row xl:flex-row">
           <div>
-            <Link to={"/"} className="font-bold text-[24px]">
-              ilubooks
+            <Link to={"/"} className="font-bold text-[24px] italic">
+              Epu Paint
             </Link>
           </div>
           <div className="w-[50%] relative">
             <input
               type="text"
-              placeholder="Search on ilubooks.."
+              placeholder="Search on Epu Paint..."
               onBlur={() => setFocus(false)}
               onKeyDown={(event) => handleSearch(event)}
-              className="bg-[#ccc] show-header-search outline-none rounded-[20px] w-[100%] font-[14px] px-[20px] py-[10px] ssm:mb-[10px] sm:mb-[10px] lg:mb-0 lg:ml-2"
+              className="bg-[#ccc] italic show-header-search outline-none rounded-[20px] w-[100%] font-[14px] px-[20px] py-[10px] ssm:mb-[10px] sm:mb-[10px] lg:mb-0 lg:ml-2"
             />
             {focus ? (
               <div className="absolute bg-white right-0 left-0 p-4 h-[300px] text-black z-[1000] header-search overflow-y-scroll">
@@ -258,7 +258,7 @@ const Header: React.FC = () => {
                 </button>
               </li>
             )}
-            {user?.admin && (
+            {user?.admin === 1 ? (
               <>
                 <li className="text-[16px] mr-[50px] py-[16px] text-[#ffffff] hover:text-[#f51167] font-[600] relative main-menu">
                   <Link to={"#"}>Admin</Link>
@@ -291,6 +291,8 @@ const Header: React.FC = () => {
                   </ul>
                 </li>
               </>
+            ) : (
+              ""
             )}
           </ul>
         </div>

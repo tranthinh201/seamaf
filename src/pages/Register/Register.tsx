@@ -92,19 +92,12 @@ function Register() {
               />
             </div>
           </div>
-          <div className="flex text-[18px]">
-            <input type="checkbox" className="mr-2" />
-            <p>Remember me</p>
-          </div>
           <div className="bg-[#f51167] text-center rounded-[6px] my-3">
             <button className="w-full text-[18px] py-2 font-bold text-white">
-              Login
+              Register
             </button>
           </div>
-          <div className="text-[#007bff] font-bold text-right">
-            <Link to={"/"}>Forgot password ?</Link>
-          </div>
-          <p className="text-center py-3">or login with</p>
+          <p className="text-center py-3">or register with</p>
           <div className="flex justify-between p-10 border-b">
             <div className="w-[48%] text-center bg-[#4866a8] py-2 text-l font-bold text-white rounded-md">
               <Link to={"/"}>Facebook</Link>
@@ -122,10 +115,10 @@ function Register() {
               </Link>
             </div>
             <div className="mb-2">
-              <span>Don't have an account?</span>
-              <Link to={"/"} className="text-[#007bff] font-bold">
+              <span>You have an account?</span>
+              <Link to={"/signin"} className="text-[#007bff] font-bold">
                 {" "}
-                Register here
+                Login here
               </Link>
             </div>
           </div>
