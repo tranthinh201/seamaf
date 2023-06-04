@@ -83,8 +83,6 @@ const Cart: React.FC = () => {
     return total;
   };
 
-  console.log(cartItem);
-
   return (
     <div className="container m-auto py-[105px]">
       {cartItem?.length === 0 ? (
@@ -203,7 +201,7 @@ const Cart: React.FC = () => {
             <div>
               <div className="text-white">
                 <button className="bg-[#f51167] w-full mb-4 py-3 rounded-[10px] text-[16px] font-bold">
-                  PROCEED TO CHECKOUT
+                  <Link to={"/checkout"}>PROCEED TO CHECKOUT</Link>
                 </button>
               </div>
               <div className="text-white">

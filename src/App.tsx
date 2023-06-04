@@ -22,6 +22,7 @@ import Sale from "./pages/Sale/Sale";
 import Contact from "./pages/Contact/Contact";
 import { UpdateUser, User } from "./pages/Admin/User";
 import { ContactAdmin, DetailContact } from "./pages/Admin/Contact";
+import Checkout from "./pages/Checkout/Checkout";
 
 function App() {
   const userAdmin =
@@ -39,6 +40,7 @@ function App() {
         <Route path="/sale" element={<Sale />} />
         <Route path="/category-product/:id" element={<CategoryProduct />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/checkout" element={<Checkout />} />
         {userAdmin && (
           <Route path="admin">
             <Route path="category" element={<Category />} />
