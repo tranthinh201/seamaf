@@ -17,6 +17,7 @@ export const loginUser = async (user: any, dispatch: any, navigate: any) => {
       "https://thinh-201-pain-epu-backend.onrender.com/api/v1/user/login",
       user
     );
+    console.log(res.data);
     if (res.data) {
       showToastMessageSuccess("Đăng nhập thành công!");
       dispatch(loginSuccess(res.data));

@@ -178,37 +178,12 @@ const Cart: React.FC = () => {
                 </button>
               </form>
             </div>
-            <div className="border rounded-[20px] my-5 px-8">
-              <div className="py-4">
-                <h3 className="font-bold text-[18px] pt-1">SHIPPING OPTIONS</h3>
-                <div className="flex items-center py-4">
-                  <h3 className="mr-4 text-[16px] font-bold">Select zone</h3>
-                  <select className="border px-3 py-2 outline-none">
-                    <option value="1">Greendale</option>
-                    <option value="1">Greendale</option>
-                    <option value="1">Greendale</option>
-                    <option value="1">Greendale</option>
-                    <option value="1">Greendale</option>
-                  </select>
-                </div>
-                <div>
-                  <button className="border bg-black rounded-[5px] text-white py-[0.375rem] px-[0.75rem] font-bold">
-                    Caculate
-                  </button>
-                </div>
-              </div>
-            </div>
+            <div className="border rounded-[20px] my-5 px-8"></div>
             <div>
-              <div className="text-white">
-                <button className="bg-[#f51167] w-full mb-4 py-3 rounded-[10px] text-[16px] font-bold">
-                  <Link to={"/checkout"}>PROCEED TO CHECKOUT</Link>
-                </button>
-              </div>
-              <div className="text-white">
-                <button className="bg-black w-full mb-4 py-3 rounded-[10px] text-[16px] font-bold">
-                  CONTINUTE SHOPPING
-                </button>
-              </div>
+              <button className="border border-transparent  bg-gray-900  text-white flex flex-row justify-center items-center space-x-2 py-4 rounded w-full">
+                <Link to={"/checkout"}>PROCEED TO CHECKOUT</Link>
+              </button>
+              <div className="text-white"></div>
             </div>
           </div>
         </div>

@@ -92,11 +92,11 @@ function Register() {
               />
             </div>
           </div>
-          <div className="bg-[#f51167] text-center rounded-[6px] my-3">
-            <button className="w-full text-[18px] py-2 font-bold text-white">
-              Register
-            </button>
-          </div>
+          <button className="border border-transparent  bg-gray-900  text-white flex flex-row justify-center items-center space-x-2 py-4 rounded w-full">
+            <div>
+              <p className="text-base leading-4">REGISTER</p>
+            </div>
+          </button>
           <p className="text-center py-3">or register with</p>
           <div className="flex justify-between p-10 border-b">
             <div className="w-[48%] text-center bg-[#4866a8] py-2 text-l font-bold text-white rounded-md">

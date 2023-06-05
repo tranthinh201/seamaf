@@ -43,6 +43,7 @@ function AddProduct() {
     outstanding: outstanding,
   };
 
+
   const handleAddProduct = async (e: any) => {
     e.preventDefault();
     if (nameProduct === "" || price === 0 || desc === "") {

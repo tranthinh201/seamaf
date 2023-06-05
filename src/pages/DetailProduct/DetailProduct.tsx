@@ -176,34 +176,14 @@ const DetailProduct: React.FC = () => {
                     ))}
                   </div>
                 </div>
-                {/* <div className="mb-[40px] flex pt-3 items-center">
-                  <h3 className="text-[14px] font-bold mr-4">QUANTITY</h3>
-                  <div className="flex items-center border rounded-[40px] px-[20px]">
-                    <AiOutlineMinus
-                      className="text-[10px]"
-                      onClick={() => {
-                        setCount(count--);
-                      }}
-                    />
-                    <input
-                      type="text"
-                      value={count}
-                      className=" outline-none w-7 leading-9 text-[12px] text-center mx-3"
-                    />
-                    <AiOutlinePlus
-                      className="text-[10px]"
-                      onClick={() => {
-                        setCount(count++);
-                      }}
-                    />
-                  </div>
-                </div> */}
                 <div>
                   <button
                     onClick={() => addToCart(detail?.id_product)}
-                    className="bg-[#f51167] px-10 py-4 font-bold text-white rounded-[10px]"
+                    className="border border-transparent  bg-gray-900  text-white flex flex-row justify-center items-center space-x-2 py-4 rounded w-full"
                   >
-                    ADD TO CART
+                    <div>
+                      <p className="text-base leading-4">ADD TO CART</p>
+                    </div>
                   </button>
                 </div>
               </div>

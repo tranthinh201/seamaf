@@ -31,7 +31,6 @@ function SignIn() {
     (state: any) => state.auth.login.currentUser?.data
   );
 
-  const [value, setValue] = useState<string | null>();
   const handleClick = async () => {
     const infoEmail = await signInWithPopup(auth, provider);
     const data = {
@@ -43,7 +42,7 @@ function SignIn() {
 
   return !userInfor ? (
     <div className="flex xl:w-[1400px] m-auto rounded-[20px] overflow-hidden my-6 border border-[rgba(0,0,0,.125)]">
-      <div className='bg-[url("https://seamaf.com/frontend/img/background.jpg")] hidden lg:block bg-no-repeat bg-cover w-[45%]'></div>
+      <div className='bg-[url("https://stc.subi.vn/image/w/1/200622/tranh-treo-tuong-like-is-better-u-the-lake-2_350x350.jpg.webp")] hidden lg:block bg-no-repeat bg-cover w-[45%]'></div>
       <div className="p-12 w-[65%]">
         <h1 className="text-center py-4 text-[24px] font-bold">
           Login To Your Account
@@ -75,11 +74,11 @@ function SignIn() {
               />
             </div>
           </div>
-          <div className="bg-[#f51167] text-center rounded-[6px] my-3">
-            <button className="w-full text-[18px] py-2 font-bold text-white">
-              Login
-            </button>
-          </div>
+          <button className="border border-transparent  bg-gray-900  text-white flex flex-row justify-center items-center space-x-2 py-4 rounded w-full">
+            <div>
+              <p className="text-base leading-4">LOGIN</p>
+            </div>
+          </button>
           <div className="text-[#007bff] font-bold text-right">
             <Link to={"/"}>Forgot password ?</Link>
           </div>
